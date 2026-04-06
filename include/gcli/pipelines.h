@@ -93,4 +93,32 @@ int gcli_get_pipeline(struct gcli_ctx *ctx,
                       struct gcli_path const *pipeline_path,
                       struct gcli_pipeline *out);
 
+int gcli_get_pipeline_jobs(struct gcli_ctx *ctx,
+                           struct gcli_path const *pipeline_path,
+                           int count,
+                           struct gcli_job_list *out);
+
+int gcli_get_pipeline_children(struct gcli_ctx *ctx,
+                               struct gcli_path const *pipeline_path,
+                               int count,
+                               struct gcli_pipeline_list *out);
+
+int gcli_job_get_log(struct gcli_ctx *ctx,
+                     struct gcli_path const *job_path,
+                     FILE *stream);
+
+int gcli_job_cancel(struct gcli_ctx *ctx,
+                    struct gcli_path const *job_path);
+
+int gcli_job_retry(struct gcli_ctx *ctx,
+                   struct gcli_path const *job_path);
+
+int gcli_job_download_artifacts(struct gcli_ctx *ctx,
+                                struct gcli_path const *job_path,
+                                char const *outfile);
+
+int gcli_get_job(struct gcli_ctx *ctx,
+                 struct gcli_path const *job_path,
+                 struct gcli_job *const out);
+
 #endif /* GCLI_PIPELINES_H */
